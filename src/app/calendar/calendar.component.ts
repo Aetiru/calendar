@@ -16,17 +16,20 @@ import {
 import { Subject } from 'rxjs';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import {
+  CalendarDateFormatter,
   CalendarEvent,
   CalendarEventAction,
   CalendarEventTimesChangedEvent,
   CalendarModule,
   CalendarView,
+  DAYS_OF_WEEK,
 } from 'angular-calendar';
 import { EventColor } from 'calendar-utils';
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FlatpickrModule } from 'angularx-flatpickr';
 import { FormsModule } from '@angular/forms';
+import { CustomDateFormatter } from './custom-date-formatter.provider';
 
 const colors: Record<string, EventColor> = {
   red: {
@@ -59,6 +62,12 @@ const colors: Record<string, EventColor> = {
       }
     `,
   ],
+  providers: [
+    {
+      provide: CalendarDateFormatter,
+      useClass: CustomDateFormatter,
+    },
+  ],
   templateUrl: './calendar.component.html',
   imports: [
     CommonModule,
@@ -75,6 +84,12 @@ export class DemoComponent {
   CalendarView = CalendarView;
 
   viewDate: Date = new Date();
+
+  locale: string = 'it'
+
+  weekStartsOn: number = DAYS_OF_WEEK.MONDAY;
+
+  weekendDays: number[] = [DAYS_OF_WEEK.FRIDAY, DAYS_OF_WEEK.SATURDAY];
 
   modalData: {
     action: string;
@@ -145,6 +160,8 @@ export class DemoComponent {
   activeDayIsOpen: boolean = true;
 
   constructor(private modal: NgbModal) { }
+
+
 
   dayClicked({ date, events }: { date: Date; events: CalendarEvent[] }): void {
     if (isSameMonth(date, this.viewDate)) {

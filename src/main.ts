@@ -10,6 +10,14 @@ import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { FlatpickrModule } from 'angularx-flatpickr';
 import { DemoComponent } from './app/calendar/calendar.component';
+import localeFr from '@angular/common/locales/fr';
+import localeAr from '@angular/common/locales/ar';
+import localeIt from '@angular/common/locales/it';
+import { registerLocaleData } from '@angular/common';
+
+registerLocaleData(localeFr);
+registerLocaleData(localeAr);
+registerLocaleData(localeIt);
 
 bootstrapApplication(AppComponent, {
   providers: [
