@@ -1,3 +1,52 @@
 /* You can add global styles to this file, and also import other style files */
 /* angular-cli file: src/styles.css */
 @import "../node_modules/angular-calendar/css/angular-calendar.css";
+
+.cal-month-view .cal-open-day-events {
+  color: #fff;
+  background-color: #0d6efd;
+  -webkit-box-shadow: inset 0 0 15px 0 rgba(187, 48, 48, 0.5);
+  box-shadow: inset 0 0 15px 0 rgba(97, 50, 50, 0.5);
+}
+
+.cal-month-view .cal-day-badge {
+  background-color: #0075FF;
+  color: #fff;
+}
+
+.cal-month-view .cal-day-badge {
+  margin-top: 9px;
+  margin-left: 10px;
+  display: inline-block;
+  min-width: 10px;
+  padding: 3px 7px;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  border-radius: 5px;
+  float: left;
+}
+
+.cal-month-view .cal-day-number {
+  font-size: 1.2em;
+  font-weight: 400;
+  opacity: 0.5;
+  margin-top: 9px;
+  margin-right: 15px;
+  list-style: 14px;
+  float: right;
+  margin-bottom: 10px;
+  color: black;
+  font-family: 'Mona Sans', sans-serif;
+}
+
+.cal-month-view .cal-header {
+  font-weight: 400;
+  line-height: 14.51px;
+  text-align: center;
+  font-family: 'Mona Sans', sans-serif;
+  letter-spacing: 0.2px;
+}
